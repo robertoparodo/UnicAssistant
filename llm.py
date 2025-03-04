@@ -8,7 +8,6 @@ Other tools used include query decomposition, if needed, and conversation histor
 Author:
 Roberto Parodo, email: r.parodo2@studenti.unica.it
 """
-from langchain_openai import AzureChatOpenAI
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -33,12 +32,6 @@ class Llm(object):
         accurately locate the segments from which to extract the information.
         """
         self.course = course
-        #self.llm = AzureChatOpenAI(
-        #    openai_api_key=os.getenv("OPENAI_API_KEY"),
-        #    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        #    api_version=os.getenv("OPENAI_API_VERSION"),
-        #    deployment_name=os.getenv("DEPLOYMENT_NAME")
-        #)
         self.llm = ChatOpenAI(
            model="gpt-3.5-turbo"
         )
